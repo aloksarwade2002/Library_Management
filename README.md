@@ -18,27 +18,20 @@ This is a RESTful API for managing books in a library. It allows users to authen
 
 ## Installation
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/library-management-api.git
-cd library-management-api
-```
-
-### 2. Create a Virtual Environment
+### 1. Create a Virtual Environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+use `venv\Scripts\activate`
 ```
 
-### 3. Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure Database (MySQL)
+### 3. Configure Database (MySQL)
 
 1. Create a MySQL database:
    ```sql
@@ -58,20 +51,20 @@ pip install -r requirements.txt
    }
    ```
 
-### 5. Apply Migrations
+### 4. Apply Migrations
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Create a Superuser
+### 5. Create a Superuser
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7. Run the Server
+### 6. Run the Server
 
 ```bash
 python manage.py runserver
@@ -81,14 +74,14 @@ python manage.py runserver
 
 ## API Endpoints
 
-### 1️⃣ Authentication
+### 1️ Authentication
 
 #### **Signup** (POST `/signup/`)
 
 ```json
 {
-    "username": "john_doe",
-    "email": "john@example.com",
+    "username": "shubh_more",
+    "email": "shubh@example.com",
     "password": "password123"
 }
 ```
@@ -97,7 +90,7 @@ python manage.py runserver
 
 ```json
 {
-    "username": "john_doe",
+    "email": "shubh@example",
     "password": "password123"
 }
 ```
@@ -116,7 +109,7 @@ Header: `Authorization: Token your_auth_token`
 
 ---
 
-### 2️⃣ Books
+### 2️ Books
 
 #### **Get All Books** (GET `/books/`)
 
@@ -184,15 +177,4 @@ curl -X POST http://127.0.0.1:8000/api/books/ \
      -H "Content-Type: application/json" \
      -d '{"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "isbn": "9780743273565", "published_year": 1925, "genre": "Fiction"}'
 ```
-
----
-
-## 📌 License
-
-This project is licensed under the MIT License.
-
----
-
-## 📌 Author
-
-**Your Name** - [GitHub](https://github.com/yourusername)
+**Your Name** - [GitHub](https://github.com/aloksarwade2002)
