@@ -153,8 +153,8 @@ Header: `Authorization: Token your_auth_token`
 2. Send a **POST** request to `http://127.0.0.1:8000/api/login/` with JSON body:
    ```json
    {
-       "username": "john_doe",
-       "password": "password123"
+      "email": "shubh@example.com",
+      "password": "password123"3"
    }
    ```
 3. Copy the token and use it in the **Authorization Header** for further requests.
