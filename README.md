@@ -159,22 +159,5 @@ Header: `Authorization: Token your_auth_token`
    ```
 3. Copy the token and use it in the **Authorization Header** for further requests.
 
-### Using curl
 
-#### Login & Get Token
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/login/ \
-     -H "Content-Type: application/json" \
-     -d '{"username": "john_doe", "password": "password123"}'
-```
-
-#### Add a Book
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/books/ \
-     -H "Authorization: Token your_auth_token" \
-     -H "Content-Type: application/json" \
-     -d '{"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "isbn": "9780743273565", "published_year": 1925, "genre": "Fiction"}'
-```
-**Your Name** - [GitHub](https://github.com/aloksarwade2002)
+**aloksarwade** - [GitHub](https://github.com/aloksarwade2002)
