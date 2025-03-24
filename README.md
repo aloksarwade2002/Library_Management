@@ -1,2 +1,198 @@
-# Library_Management
+# Library Management API
+
 This is a RESTful API for managing books in a library. It allows users to authenticate, add, update, retrieve, and delete books.
+
+## Features
+
+- User authentication (Signup, Login, Logout)
+- CRUD operations for books
+- Token-based authentication
+
+## Technologies Used
+
+- Django Rest Framework (DRF)
+- MySQL
+- Python 3.9+
+
+---
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/library-management-api.git
+cd library-management-api
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Database (MySQL)
+
+1. Create a MySQL database:
+   ```sql
+   CREATE DATABASE library_db;
+   ```
+2. Update `settings.py` with your MySQL credentials:
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'library_db',
+           'USER': 'your_username',
+           'PASSWORD': 'your_password',
+           'HOST': 'localhost',
+           'PORT': '3306',
+       }
+   }
+   ```
+
+### 5. Apply Migrations
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Create a Superuser
+
+```bash
+python manage.py createsuperuser
+```
+
+### 7. Run the Server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## API Endpoints
+
+### 1️⃣ Authentication
+
+#### **Signup** (POST `/signup/`)
+
+```json
+{
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "password123"
+}
+```
+
+#### **Login** (POST `/login/`)
+
+```json
+{
+    "username": "john_doe",
+    "password": "password123"
+}
+```
+
+Response:
+
+```json
+{
+    "token": "your_auth_token"
+}
+```
+
+#### **Logout** (POST `/logout/`)
+
+Header: `Authorization: Token your_auth_token`
+
+---
+
+### 2️⃣ Books
+
+#### **Get All Books** (GET `/books/`)
+
+Header: `Authorization: Token your_auth_token`
+
+#### **Add a New Book** (POST `/books/`)
+
+```json
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565",
+    "published_year": 1925,
+    "genre": "Fiction"
+}
+```
+
+#### **Update a Book** (PUT `/books/{id}/`)
+
+```json
+{
+    "title": "The Great Gatsby - Updated",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565",
+    "published_year": 1925,
+    "genre": "Classic Fiction"
+}
+```
+
+#### **Delete a Book** (DELETE `/books/{id}/`)
+
+Header: `Authorization: Token your_auth_token`
+
+---
+
+## Testing the API
+
+### Using Postman
+
+1. Open **Postman**.
+2. Send a **POST** request to `http://127.0.0.1:8000/api/login/` with JSON body:
+   ```json
+   {
+       "username": "john_doe",
+       "password": "password123"
+   }
+   ```
+3. Copy the token and use it in the **Authorization Header** for further requests.
+
+### Using curl
+
+#### Login & Get Token
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/login/ \
+     -H "Content-Type: application/json" \
+     -d '{"username": "john_doe", "password": "password123"}'
+```
+
+#### Add a Book
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/books/ \
+     -H "Authorization: Token your_auth_token" \
+     -H "Content-Type: application/json" \
+     -d '{"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "isbn": "9780743273565", "published_year": 1925, "genre": "Fiction"}'
+```
+
+---
+
+## 📌 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 📌 Author
+
+**Your Name** - [GitHub](https://github.com/yourusername)
