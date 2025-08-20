@@ -80,8 +80,8 @@ python manage.py runserver
 
 ```json
 {
-    "username": "shubh_more",
-    "email": "shubh@example.com",
+    "username": "alok_sarwade",
+    "email": "alok@example.com",
     "password": "password123"
 }
 ```
@@ -90,7 +90,7 @@ python manage.py runserver
 
 ```json
 {
-    "email": "shubh@example",
+    "email": "alok@example",
     "password": "password123"
 }
 ```
@@ -153,7 +153,7 @@ Header: `Authorization: Token your_auth_token`
 2. Send a **POST** request to `http://127.0.0.1:8000/api/login/` with JSON body:
    ```json
    {
-      "email": "shubh@example.com",
+      "email": "alok@example.com",
       "password": "password123"3"
    }
    ```
